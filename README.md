@@ -1,2 +1,3 @@
-# wjw99830.github.io
-My Blog.
+# My Blog
+> blogs
+  --{date}.{title}.md
