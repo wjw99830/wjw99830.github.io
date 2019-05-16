@@ -1,3 +1,3 @@
 # My Blog
 > blogs
-  --{date}.{title}.md
+> --{date}.{title}.md
