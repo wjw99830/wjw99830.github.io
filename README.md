@@ -1,3 +1,4 @@
 # My Blog
-> blogs
-> --{date}.{title}.md
+```
+blogs
+-----{date}.{title}.md
