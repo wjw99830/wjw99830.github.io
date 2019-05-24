@@ -1,0 +1,15 @@
+body {
+  margin: 0 auto;
+  margin-bottom: 90px;
+  width: 60%;
+  min-width: 600px;
+}
+pre {
+  color: #333;
+  background-color: #f6f7fa;
+  padding: 20px 10px;
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+}
+a {
+  color: #08c;
+}
