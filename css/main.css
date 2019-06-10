@@ -13,3 +13,11 @@ pre {
 a {
   color: #08c;
 }
+p {
+  text-indent: 2rem;
+  line-height: 2.5rem;
+}
+body img {
+  display: block;
+  margin: 0 auto;
+}
