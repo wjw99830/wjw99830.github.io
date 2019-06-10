@@ -4,11 +4,15 @@ body {
   width: 60%;
   min-width: 600px;
 }
-pre {
+pre, .inline-code {
   color: #333;
   background-color: #f6f7fa;
   padding: 20px 10px;
   font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+}
+.inline-code {
+  padding: 0;
+  background-color: #f4f4f4;
 }
 a {
   color: #08c;
