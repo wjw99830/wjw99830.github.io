@@ -14,6 +14,11 @@ pre, .inline-code {
   padding: 0;
   background-color: #f4f4f4;
 }
+.modify {
+  vertical-align: middle;
+  margin-right: 10px;
+  color: #aaa;
+}
 a {
   color: #08c;
 }
