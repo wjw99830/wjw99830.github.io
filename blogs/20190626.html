@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>实现Vue Function-based API</title>
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+  <h1>实现Vue Function-based API</h1>
+  <hr>
+  <ul>
+    <li>value</li>
+    <li>computed</li>
+    <li>watch</li>
+    <li>lifecycles</li>
+  </ul>
+  <p>Vue 2.6.10 已经暴露了observable API，可以在组件之外将普通对象转换为响应式数据，根据这个API可以实现value函数，将初始值包装进一个Wrapper对象里，通过Wrapper.prototype.value来访问。</p>
+  <pre>
+  // Wrapper.ts
+
+  export interface WrapperOptions {
+    isComputed: boolean;
+  }
+  export class Wrapper<T> {
+    public value!: T;
+    /**
+     * use type unknown for raw.value since there is a slight difference between computed and value.
+     * type unknown could be asserted to any type with sound type inference.
+     */
+    private raw: { value: unknown };
+    constructor(value: T, opts: Partial<WrapperOptions> = {}) {
+      this.raw = Vue.observable({
+        value,
+      });
+      Object.defineProperty(this, 'value', {
+        get: () => {
+          return opts.isComputed ? (this.raw.value as () => T)() : this.raw.value as T;
+        },
+        set: (v: T) => {
+          this.raw.value = v;
+        },
+      });
+    }
+  }  
+  </pre>
+  <pre>
+  // value API
+
+  export const value = &lt;T&gt;(initValue: T): Wrapper&lt;T&gt; => {
+    const wrapper = new Wrapper(initValue);
+    return wrapper;
+  };
+
+  // computed API
+
+  export const computed = &lt;T&gt;(getter: () => T) => {
+    const wrapper = new Wrapper(getter, { isComputed: true });
+    return wrapper;
+  };
+  </pre>
+  <p>当实现watch时，首先考虑的是实例化vue内部的Watcher类，但观其源码后放弃了这个想法，在2.x中Watcher是和Vue实例直接耦合的，不能作为一个独立的API去使用，而且Vue也没有将其暴露出来，因此变换思路，能否在watch函数执行的时候获取到当前上下文的Vue实例？</p>
+  <p>由于watch作为一个函数而不是方法使用，因此想在不传入参数的情况下获取到上下文，只能依赖外部的闭包。于是问题变成了如何在vue-compsition-functions模块中获取到Vue在创建组件时的上下文？created钩子中prop已经完成初始化，因此在这个钩子期间执行setup是可取的在执行期间将this赋值给外部变量，当watch执行时，检测外部变量是否存在，如果存在，则为该实例添加watch，调用其$watch方法。</p>
+  <p>那么问题来了，生命周期函数呢？</p>
+  <p>未完待续</p>
+  <pre></pre>
+</body>
+</html>
