@@ -14,12 +14,10 @@
   <p>会话级存储：SessionStorage。在一个窗口关闭后数据清空，多个窗口不会共享数据，即使同源。</p>
   <p>持久化存储：LocalStorage。除非手动清空数据，否则数据将会一直存在，以域的级别隔离数据。</p>
   <p>两种存储的API基本相同：</p>
-  <pre>
-    SessionStorage.get
-    SessionStorage.set
-    SessionStorage.clear
-    ...
-  </pre>
+  <pre>Storage.get
+Storage.set
+Storage.clear
+...</pre>
   <h2>Memory Cache</h2>
   <hr />
   <p>浏览器针对同个文档中的多个相同资源请求进行的优化，无相关标准定义其行为。</p>
