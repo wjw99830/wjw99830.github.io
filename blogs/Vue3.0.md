@@ -1,7 +1,6 @@
 <small>最后编辑于2019-09-18</small>
 
 # Composition API
-***
 + ref （声明一个状态，通过.value访问值，另一个作用是作为ref的宿主对象，运行时通过xxx.value访问模板中的ref）
 + reactive （将一个对象转化为响应式对象，无需通过.value访问）
 + computed

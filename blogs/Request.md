@@ -1,8 +1,6 @@
 <small>最后编辑于2019-09-18</small>
 
 # 前端性能优化 - 网络请求
-***
-
 ## DNS Prefetch
 ```html
 <link rel="dns-prefetch" href="//example.com" />
