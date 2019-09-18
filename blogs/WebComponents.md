@@ -1,4 +1,6 @@
 <small>最后编辑于2019-05-09</small>
+
+# Web Components
 目前Web Components的兼容性还不是很好, 只有现代主流浏览器的高版本才支持, 非Chromium的Edge还不支持, 但是作为标准, 未来它的使用将会越来越广泛, 还是有学习的必要的, 所以从写一个select组件入手来认识他的基本用法;
 
 select样式参照Element UI的el-select;
@@ -92,7 +94,7 @@ function transition(el, { enter, enterActive, enterTo, leave, leaveActive, leave
   el.addEventListener('transitionend', end);
 }
 ```
-总结:
+# 总结:
 1. Web Components继承于HTMLElement, 可以使用它的所有方法;
 2. 经测试发现在先解析HTML再加载script文件的情况下, 自定义元素仍然生效;
 3. 若要使用, 必须调用customElement.define来定义一个标签和构造元素的类;
