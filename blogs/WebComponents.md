@@ -1,5 +1,4 @@
-继阿里前端面试之后, 我意识到了遵循标准的重要性, 因此对Web Components产生了学习的兴趣;
-
+<small>最后编辑于2019-05-09</small>
 目前Web Components的兼容性还不是很好, 只有现代主流浏览器的高版本才支持, 非Chromium的Edge还不支持, 但是作为标准, 未来它的使用将会越来越广泛, 还是有学习的必要的, 所以从写一个select组件入手来认识他的基本用法;
 
 select样式参照Element UI的el-select;

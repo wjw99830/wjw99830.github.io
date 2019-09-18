@@ -1,6 +1,2 @@
-# My Blog
-```
-blogs
-———— {date}.{title}.md
-README.md
-```
+# 笔记
+[Web Components](https://wjw99830.github.io/)
